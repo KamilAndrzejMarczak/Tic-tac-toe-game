@@ -1,4 +1,5 @@
 // START Generate Board
+let actualTurn = true; // true - X turn | false - Y turn
 let board = document.querySelector('#board');
 let fields = '';
 let fieldsX = [];
@@ -18,3 +19,19 @@ for (let i = 0; i < 9; i++) {
 }
 board.innerHTML = fields;
 // END Generate Board
+
+//START Game support
+let field = document.querySelectorAll('.field');
+field.forEach((element) => {
+  element.addEventListener('click', (e) => {
+    if (actualTurn && !fieldsX.includes(e.currentTarget.id)) {
+      fieldsX.push(parseInt(e.currentTarget.id));
+      console.log(fieldsX);
+    } else if (!actualTurn && !fieldsY.includes(e.currentTarget.id)) {
+      fieldsY.push(parseInt(e.currentTarget.id));
+      console.log(fieldsY);
+    }
+    actualTurn = !actualTurn;
+  });
+});
+//END Game support
