@@ -19,17 +19,17 @@ for (let i = 0; i < 9; i++) {
 }
 board.innerHTML = fields;
 // END Generate Board
-
 //START Game support
 let field = document.querySelectorAll('.field');
 field.forEach((element) => {
   element.addEventListener('click', (e) => {
-    if (actualTurn && !fieldsX.includes(e.currentTarget.id)) {
-      fieldsX.push(parseInt(e.currentTarget.id));
-      console.log(fieldsX);
-    } else if (!actualTurn && !fieldsY.includes(e.currentTarget.id)) {
-      fieldsY.push(parseInt(e.currentTarget.id));
-      console.log(fieldsY);
+    const id = e.currentTarget.id;
+    if (actualTurn && !fieldsX.includes(id)) {
+      fieldsX.push(parseInt(id));
+      document.getElementById(id).innerHTML = 'X';
+    } else if (!actualTurn && !fieldsY.includes(id)) {
+      fieldsY.push(parseInt(id));
+      document.getElementById(id).innerHTML = 'O';
     }
     actualTurn = !actualTurn;
   });

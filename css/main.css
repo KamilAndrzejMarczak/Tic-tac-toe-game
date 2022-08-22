@@ -34,3 +34,11 @@ body {
   font-size: 50px;
   color: white;
 }
+
+.field {
+  color: white;
+  font-size: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
